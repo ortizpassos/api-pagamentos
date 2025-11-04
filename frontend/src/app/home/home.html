@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="form-card">
+    <h2>Pagamento com Cartão</h2>
+    <form #form="ngForm" autocomplete="off">
+      <div class="row btn-row">
+        <button type="button" (click)="novoPagamento()" class="btn-novo">Novo Pagamento</button>
+        <button type="button" (click)="pagar()" [disabled]="carregando" class="btn-pagar">Pagar</button>
+      </div>
+      <div class="row">
+        <label>Valor a pagar (R$):
+          <input type="text" name="valor" [(ngModel)]="formData.valor" required pattern="^\d+(,\d{1,2})?$|^\d+(\.\d{1,2})?$" placeholder="Ex: 1,00 ou 1.50" />
+        </label>
+        <label>Parcelas:
+          <input type="number" name="installments" [(ngModel)]="formData.installments" required min="1" max="12" />
+        </label>
+      </div>
+      <div class="row">
+        <label>Número do cartão:
+          <input type="text" name="numero" [(ngModel)]="formData.numero" required maxlength="19" pattern="[0-9 ]{13,19}" />
+        </label>
+        <label>CPF do cliente:
+          <input type="text" name="cpf" [(ngModel)]="formData.cpf" required maxlength="14" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$|^\d{11}$" placeholder="Ex: 123.456.789-00 ou 12345678900" />
+        </label>
+      </div>
+      <label>Nome impresso no cartão:
+        <input type="text" name="nome" [(ngModel)]="formData.nome" required />
+      </label>
+      <div class="row">
+        <label>Validade (MM/AA):
+          <input type="text" name="validade" [(ngModel)]="formData.validade" required pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$" placeholder="MM/AA" />
+        </label>
+        <label>CVV:
+          <input type="text" name="cvv" [(ngModel)]="formData.cvv" required maxlength="4" pattern="[0-9]{3,4}" />
+        </label>
+      </div>
+    </form>
+    <div *ngIf="carregando" class="info">Processando pagamento...</div>
+    <div *ngIf="mensagem" class="info" [ngClass]="{
+      'erro': mensagem === 'Pagamento negado! Cartão inválido.',
+      'sucesso': mensagem !== 'Pagamento negado! Cartão inválido.' && mensagem !== 'Pagamento negado! Limite insuficiente.',
+      'azul': mensagem === 'Pagamento negado! Limite insuficiente.'
+    }">{{ mensagem }}</div>
+    <p *ngIf="erro" class="erro">Erro: {{ erro }}</p>
+  </div>
+</div>

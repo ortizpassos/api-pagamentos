@@ -1,0 +1,143 @@
+.azul {
+  color: #2563eb;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1em;
+}
+/* Botões lado a lado */
+.btn-row {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+.btn-row .btn-novo,
+.btn-row .btn-pagar {
+  flex-basis: 0;
+  flex-grow: 1;
+  margin: 0;
+  float: none;
+  min-width: 120px;
+}
+@media (max-width: 600px) {
+  .btn-row {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .btn-row .btn-novo,
+  .btn-row .btn-pagar {
+    width: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f8fafc 60%, #e0e7ef 100%);
+}
+.form-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 2em 1em;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  transition: box-shadow 0.2s;
+}
+.form-card:hover {
+  box-shadow: 0 8px 40px rgba(37,99,235,0.12);
+}
+.form-card h2 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 0.5px;
+}
+.row {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #334155;
+}
+input {
+  width: 100%;
+  padding: 0.7em;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1em;
+  margin-top: 0.3em;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px #2563eb22;
+  outline: none;
+}
+.btn-novo {
+  background: #64748b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  float: right;
+  margin-bottom: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-novo:hover {
+  background: #475569;
+}
+.btn-pagar {
+  background: linear-gradient(90deg, #2563eb 80%, #60a5fa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1.2em;
+  font-size: 1em;
+  font-weight: 700;
+  width: 100%;
+  margin-top: 1em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #2563eb22;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-pagar:hover {
+  background: linear-gradient(90deg, #1d4ed8 80%, #2563eb 100%);
+  box-shadow: 0 4px 16px #2563eb33;
+}
+.info {
+  text-align: center;
+  margin-top: 1.5em;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.sucesso {
+  color: #22c55e;
+}
+.erro {
+  color: #b00020;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1em;
+}
+@media (max-width: 600px) {
+  .form-card {
+    padding: 1em 0.3em;
+    border-radius: 12px;
+  }
+  .row {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}
