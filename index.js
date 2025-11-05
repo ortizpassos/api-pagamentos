@@ -11,7 +11,7 @@ import crypto from 'crypto';
 import cors from 'cors';
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({ origin: 'http://localhost:51594' }));
 app.use(express.json());
 
 // Endpoint para receber notificações TrustPay (webhook)
